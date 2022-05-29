@@ -50,6 +50,34 @@ function lakukanLooping(arrPegawai) {
   */
   let komentar = null;
 
+  // Created by Welly - Begin
+  hasilLooping = [];
+
+  for (let x = 0; x < dataYangAkanDilooping.length; x++) {
+    //Data Nama Pegawai
+    hasilLooping.push(
+      dataYangAkanDilooping[x].namaDepan +
+        " " +
+        dataYangAkanDilooping[x].namaBelakang
+    );
+
+    //Data Jumlah Berdasarkan Jenis Kelamin
+    if (dataYangAkanDilooping[x].jenisKelamin === "M") {
+      jumlahPria += 1;
+    } else {
+      jumlahWanita += 1;
+    }
+  }
+
+  if (jumlahPria > jumlahWanita) {
+    komentar = "Jumlah Pria lebih banyak dari Wanita";
+  } else if (jumlahPria < jumlahWanita) {
+    komentar = "Jumlah Wanita lebih banyak dari Pria";
+  } else {
+    komentar = "Jumlah Pria dan Wanita berimbang";
+  }
+  // Created by Welly - End
+
   // ! JANGAN DIMODIFIKASI
   return {
     hasilLooping,
@@ -65,6 +93,7 @@ function main(data) {
   console.log(hasil.hasilLooping);
   console.log(hasil.jumlahPria);
   console.log(hasil.jumlahWanita);
+  console.log(hasil.komentar);
 
   return hasil;
 }
